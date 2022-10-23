@@ -1,0 +1,25 @@
+{
+  "name": "crypto_tracker",
+  "version": "1.0.0",
+  "description": "crypto tracker",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Pranav",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "coingecko-api": "^1.0.10",
+    "docker": "^1.0.0",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.2",
+    "jsonschema": "^1.4.1",
+    "mailtrap": "^3.0.1",
+    "mongoose": "^6.6.7",
+    "mysql2": "^2.3.3",
+    "nodemailer": "^6.8.0"
+  }
+}
