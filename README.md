@@ -1,6 +1,8 @@
 # crypto-tracker
 
-run "npm install" to install all the dependencies
+run "npm install" to install all the dependencies<br />
+
+
 then run "npm start" to run the code
 
 use post request to set the min and max value by specifying <br />
