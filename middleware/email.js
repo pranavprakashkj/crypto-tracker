@@ -14,7 +14,7 @@ dotenvConfigOptions.config();
 // var MaxMail = databaseConnection.query(
 //   `SELECT email FROM cryptotracker.users WHERE ${price} > Max`
 // );
-// console.log(MinMail);
+
 function emailId() {
   databaseConnection.connect(function (err) {
     if (err) throw err;
