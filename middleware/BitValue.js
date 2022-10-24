@@ -1,7 +1,6 @@
 import DotenvConfigOptions from "dotenv";
 import coinGecko from "coingecko-api";
 import databaseConnection from "../connection.js";
-import email from "./email.js";
 
 const CoinGeckoClient = new coinGecko();
 DotenvConfigOptions.config();
@@ -18,5 +17,4 @@ async function insert() {
 setInterval(insert, 30000);
 
 var price = insert().price;
-
-export default price;
+export default { price };

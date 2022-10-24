@@ -1,6 +1,6 @@
 import nodemailer from "nodemailer";
 import dotenvConfigOptions from "dotenv";
-// import price from "../middleware/BitValue.js";
+import price from "../middleware/BitValue.js";
 import databaseConnection from "../connection.js";
 
 dotenvConfigOptions.config();
@@ -15,7 +15,7 @@ dotenvConfigOptions.config();
 //   `SELECT email FROM cryptotracker.users WHERE ${price} > Max`
 // );
 // console.log(MinMail);
-function min() {
+function emailId() {
   databaseConnection.connect(function (err) {
     if (err) throw err;
     databaseConnection.query(
@@ -29,9 +29,33 @@ function min() {
     );
   });
 }
-var toMail;
-toMail = min();
+let toMail;
+toMail = emailId();
 // console.log(toMail);
+
+const min = () => {
+  databaseConnection.connect(function (err) {
+    if (err) throw err;
+    databaseConnection.query(
+      `SELECT min from cryptotracker.users`,
+      function (err, result) {
+        if (err) throw err;
+        console.log(result);
+        return result[0].min;
+      }
+    );
+  });
+};
+// var minVal = min();
+// export defaut min;
+// const { minVal, mail } = min();
+// let { minval, mail } = min();
+// let values = min();
+// const [result, val] = min();
+// console.log(minVal);
+if (price > 12000) console.log("below min");
+// if (price < min()) email(price);
+
 var transport = nodemailer.createTransport({
   host: "smtp.mailtrap.io",
   port: 2525,
@@ -43,7 +67,7 @@ var transport = nodemailer.createTransport({
 
 const message = {
   from: "me@gmail.com",
-  to: min(),
+  to: toMail,
   toMail,
   subject: "Threshold warning!",
   text: "Price went below min value ",
@@ -57,4 +81,5 @@ transport.sendMail(message, (err, info) => {
   }
 });
 
-export default transport.sendMail;
+// export default {transport.sendMail};
+export default emailId();
