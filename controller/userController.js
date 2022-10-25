@@ -1,5 +1,4 @@
 import databaseConnection from "../connection.js";
-import DotenvConfigOptions from "dotenv";
 import { userValidator } from "../middleware/validator.js";
 
 export const minMax = (req, response) => {

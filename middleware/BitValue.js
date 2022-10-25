@@ -1,6 +1,7 @@
 import DotenvConfigOptions from "dotenv";
 import coinGecko from "coingecko-api";
 import databaseConnection from "../connection.js";
+import min from "./email.js";
 
 const CoinGeckoClient = new coinGecko();
 DotenvConfigOptions.config();
@@ -11,10 +12,12 @@ async function insert() {
     vs_currencies: ["usd"],
   });
   const price = data["data"]["bitcoin"]["usd"];
-  console.log(price);
+  console.log(price, "bit value");
+
   databaseConnection.query(`INSERT INTO bitcoin(value) VALUES('${price}')`);
 }
 setInterval(insert, 30000);
 
 var price = insert().price;
+
 export default { price };
