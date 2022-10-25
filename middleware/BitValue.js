@@ -1,7 +1,6 @@
 import DotenvConfigOptions from "dotenv";
 import coinGecko from "coingecko-api";
 import databaseConnection from "../connection.js";
-// import min from "./email.js";
 
 const CoinGeckoClient = new coinGecko();
 DotenvConfigOptions.config();

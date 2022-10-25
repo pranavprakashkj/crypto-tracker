@@ -1,6 +1,6 @@
 import databaseConnection from "../connection.js";
-// import price from "../middleware/BitValue.js";
 import min from "../middleware/email.js";
+import { insert } from "../middleware/BitValue.js";
 
 // console.log(price);
 
